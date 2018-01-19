@@ -6,13 +6,15 @@
 //  Copyright © 2018 LuyenBG. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MasterViewController.h"
+#import "InputViewController.h"
 
-@interface ViewController ()
+@interface MasterViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *labelText;
 
 @end
 
-@implementation ViewController
+@implementation MasterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,6 +26,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(IBAction)unwind:(UIStoryboardSegue *) segue {
+        InputViewController *inputVC = segue.sourceViewController;
+        self.labelText.text = inputVC.sendData;
+}
 
 @end
